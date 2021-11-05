@@ -6,40 +6,45 @@ const posts = [
     { author: 'Linus Torvalds', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg', date: '05/11/2021', likes: '20', imageHeader: 'https://picsum.photos/id/242/600/350' },
 ];
 
-const postTemplate = (...data) => {
-    return `
-    <div class="post">
-        <div class="post__header">
-            <div class="post-meta">
-                <div class="post-meta__icon">
-                    <img class="profile-pic" src="${data.profileImage}" alt="${data.author}">
-                </div>
-                <div class="post-meta__data">
-                    <div class="post-meta__author">${data.author}</div>
-                    <div class="post-meta__time">${data.date}</div>
+const postTemplate = (...datas) => {
+    let string = '';
+    datas.forEach((data) => {
+        string = `
+        <div class="post">
+            <div class="post__header">
+                <div class="post-meta">
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${data.profileImage}" alt="${data.author}">
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${data.author}</div>
+                        <div class="post-meta__time">${data.date}</div>
+                    </div>
                 </div>
             </div>
+            <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+            <div class="post__image">
+                <img src="${data.imageHeader}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${data.likes}</b> persone
+                    </div>
+                </div> 
+            </div>
         </div>
-        <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
-        <div class="post__image">
-            <img src="${data.imageHeader}" alt="">
-        </div>
-        <div class="post__footer">
-            <div class="likes js-likes">
-                <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
-                        <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
-                        <span class="like-button__label">Mi Piace</span>
-                    </a>
-                </div>
-                <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">${data.likes}</b> persone
-                </div>
-            </div> 
-        </div>
-    </div>
-    `;
+        `;
+    });
+    return string;
 };
 
 /* JS Logic */
-const container = document.getElementById('.container');
+const container = document.getElementById('container');
+posts.forEach((post) => container.insertAdjacentHTML('beforeend', postTemplate(post)));
