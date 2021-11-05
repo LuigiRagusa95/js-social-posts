@@ -13,8 +13,8 @@ const postTemplate = (...datas) => {
         <div class="post">
             <div class="post__header">
                 <div class="post-meta">
-                    <div class="post-meta__icon">
-                        <img class="profile-pic" src="${data.profileImage}" alt="${data.author}">
+                    <div class="post-meta__icon" style="width: 60px; height: 60px;">
+                        <img class="profile-pic" style="width:100%;max-height: 100%;object-fit: cover;"  src="${data.profileImage}" alt="${data.author}">
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${data.author}</div>
