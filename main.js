@@ -1,3 +1,10 @@
+/**
+ * 1. Creazione dell'array di oggetti (posts)
+ * 2. Creazione del template di un singolo post
+ * 3. Selezionare il container da HTML
+ * 4. Loop sull'array di oggetti i inserimento dei post nel container
+ */
+
 const posts = [
     { author: 'Jeff Bezos', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped%29.jpg', date: '05/11/2021', likes: '80', imageHeader: 'https://picsum.photos/id/237/600/350' },
     { author: 'Elon Musk', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg', date: '05/11/2021', likes: '40', imageHeader: 'https://picsum.photos/id/238/600/350' },
